@@ -13,4 +13,4 @@ services:
       - "MongoDbSettings:ConnectionString=mongodb://mongodb:27017"
       - "MongoDbSettings:DatabaseName=crimedb"
     ports:
-      - "80"
+      - "5001:80"

@@ -7,7 +7,7 @@ using REP_CRIME01.Crime.Infrastructure.Repositories;
 
 namespace REP_CRIME01.Crime.Infrastructure
 {
-    public static partial class ServiceRegistration
+    public static partial class ServiceExtension
     {
         public static IServiceCollection AddInfrastructureWithMongoDbServices(
             this IServiceCollection services, IConfiguration configuration)
