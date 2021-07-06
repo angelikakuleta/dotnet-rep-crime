@@ -1,0 +1,16 @@
+version: '3.4'
+
+services:
+  mongodb:
+    container_name: mongodb
+    restart: always
+    ports:
+      - "27017:27017"
+
+  rep_crime01.crime.api:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - "MongoDbSettings:ConnectionString=mongodb://mongodb:27017"
+      - "MongoDbSettings:DatabaseName=crimedb"
+    ports:
+      - "80"

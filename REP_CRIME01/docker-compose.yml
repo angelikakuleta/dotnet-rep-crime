@@ -1,0 +1,11 @@
+version: '3.4'
+
+services:
+  mongodb:
+    image: mongo
+
+  rep_crime01.crime.api:
+    image: ${DOCKER_REGISTRY-}repcrime01crimeapi
+    build:
+      context: .
+      dockerfile: src/Services/Crime/REP_CRIME01.Crime.API/Dockerfile
