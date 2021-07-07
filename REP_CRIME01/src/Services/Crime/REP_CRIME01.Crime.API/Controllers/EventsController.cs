@@ -5,10 +5,7 @@ using REP_CRIME01.Crime.API.Extensions;
 using REP_CRIME01.Crime.Application.Commands;
 using REP_CRIME01.Crime.Application.Models;
 using REP_CRIME01.Crime.Application.Queries;
-using REP_CRIME01.Crime.Application.Queries.GetCrimeEventById;
 using REP_CRIME01.Crime.Application.Responses;
-using REP_CRIME01.Crime.Domain.Contracts;
-using REP_CRIME01.Crime.Domain.Entities;
 using System;
 using System.Threading.Tasks;
 
@@ -18,13 +15,11 @@ namespace REP_CRIME01.Crime.API.Controllers
     [ApiController]
     public class EventsController : ControllerBase
     {
-        private readonly IRepository<CrimeEvent> _repository;
         private readonly IMediator _mediator;
 
-        public EventsController(IMediator mediator, IRepository<CrimeEvent> repository)
+        public EventsController(IMediator mediator)
         {
             _mediator = mediator ?? throw new ArgumentNullException(nameof(mediator));
-            _repository = repository;
         }
 
         [HttpGet]
@@ -38,8 +33,9 @@ namespace REP_CRIME01.Crime.API.Controllers
                 : StatusCode(response.GetStatusCode(), response.ErrorMessage);
         }
 
-
         [HttpGet("{id:Guid}")]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(CrimeEventVM))]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]       
         public async Task<ActionResult> GetByIdAsync(Guid id)
         {
             var response = await _mediator.Send(new GetCrimeEventById.Query { EventId = id });
@@ -60,17 +56,31 @@ namespace REP_CRIME01.Crime.API.Controllers
         }
 
         [HttpPut("{id:Guid}")]
-        public async Task<ActionResult> UpdateAsync([FromBody] CrimeEvent entity)
+        [ProducesResponseType(StatusCodes.Status202Accepted)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]        
+        public async Task<ActionResult> UpdateAsync(Guid id, [FromBody] UpdateCrimeEvent.Command command)
         {
-            await _repository.UpdateAsync(entity);
-            return Accepted();
+            if (id != command.Id)
+            {
+                return BadRequest();
+            }
+
+            var response = await _mediator.Send(command);
+            return response.IsSuccess ?
+                Accepted()
+                : StatusCode(response.GetStatusCode(), response.ErrorMessage);
         }
 
         [HttpDelete("{id:Guid}")]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]        
         public async Task<ActionResult> DeleteAsnc(Guid id)
         {
-            await _repository.DeleteByIdAsync(id);
-            return NoContent();
+            var response = await _mediator.Send(new DeleteCrimeEvent.Command { EventId = id });
+            return response.IsSuccess ?
+                NoContent()
+                : StatusCode(response.GetStatusCode(), response.ErrorMessage);
         }
     }
 }

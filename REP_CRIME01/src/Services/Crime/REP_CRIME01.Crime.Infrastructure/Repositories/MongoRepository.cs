@@ -40,9 +40,10 @@ namespace REP_CRIME01.Crime.Infrastructure.Repositories
             return entity;
         }
 
-        public virtual async Task DeleteByIdAsync(Guid id)
+        public virtual async Task<bool> DeleteByIdAsync(Guid id)
         {
-            await _collection.FindOneAndDeleteAsync(x => x.Id == id);
+            var result = await _collection.DeleteOneAsync(x => x.Id == id);
+            return result.IsAcknowledged && result.DeletedCount > 0;
         }
 
         public virtual async Task<TDocument> FindByIdAsync(Guid id)
