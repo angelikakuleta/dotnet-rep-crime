@@ -4,8 +4,18 @@ services:
   mongodb:
     image: mongo
 
+  sqldata:
+    image: mcr.microsoft.com/mssql/server:2017-latest  
+
   rep_crime01.crime.api:
     image: ${DOCKER_REGISTRY-}repcrime01crimeapi
     build:
       context: .
       dockerfile: src/Services/Crime/REP_CRIME01.Crime.API/Dockerfile
+
+  rep_crime01.police.api:
+    image: ${DOCKER_REGISTRY-}repcrime01policeapi
+    build:
+      context: .
+      dockerfile: src/Services/Police/REP_CRIME01.Police.API/Dockerfile
+

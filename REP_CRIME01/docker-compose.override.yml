@@ -6,11 +6,32 @@ services:
     restart: always
     ports:
       - "27017:27017"
+  
+  sqldata:
+    container_name: sqldata
+    environment:     
+      - ACCEPT_EULA=Y
+      - MSSQL_SA_PASSWORD=Passw0rd2021
+    restart: always
+    ports:
+      - "1403:1433"
 
   rep_crime01.crime.api:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
-      - "MongoDbSettings:ConnectionString=mongodb://mongodb:27017"
-      - "MongoDbSettings:DatabaseName=crimedb"
+      - MongoDbSettings:ConnectionString=mongodb://mongodb:27017
+      - MongoDbSettings:DatabaseName=crimedb
+    depends_on:
+      - mongodb
     ports:
       - "5001:80"
+
+  rep_crime01.police.api:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ConnectionStrings:PoliceContext=Server=sqldata;Database=PoliceDb;User=sa;Password=Passw0rd2021;
+    depends_on:
+      - sqldata
+    ports:
+      - "5002:80"
+
