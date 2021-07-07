@@ -2,6 +2,7 @@
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using REP_CRIME01.Police.Domain.Contracts;
+using REP_CRIME01.Police.Domain.Entities;
 using REP_CRIME01.Police.Infrastructure.Context;
 using REP_CRIME01.Police.Infrastructure.Repositories;
 using System.Reflection;
@@ -16,7 +17,8 @@ namespace REP_CRIME01.Police.Infrastructure
             services.AddDbContext<PoliceContext>(options =>
                 options.UseSqlServer(configuration.GetConnectionString("PoliceContext"), x => x.MigrationsAssembly(Assembly.GetExecutingAssembly().ToString())));
 
-            services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
+            services.AddScoped(typeof(IRepository<LawEnforcement>), typeof(LawEnforcementRepository));
+            services.AddScoped(typeof(IRepository<Case>), typeof(CaseRepository));           
 
             return services;
         }
