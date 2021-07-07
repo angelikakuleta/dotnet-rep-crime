@@ -1,7 +1,7 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using REP_CRIME01.Crime.API.Extensions;
+using REP_CRIME01.CQRSResponse;
 using REP_CRIME01.Crime.Application.Commands;
 using REP_CRIME01.Crime.Application.Models;
 using REP_CRIME01.Crime.Application.Queries;

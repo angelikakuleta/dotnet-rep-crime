@@ -45,7 +45,7 @@ namespace REP_CRIME01.Police.Infrastructure.Context
                 new LawEnforcement()
                 {
                     Id = Guid.Parse("4e2d557f-b800-4f99-9cc9-3a09c35a81b0"),
-                    Code = "OBDZ423",
+                    Code = "OBZ423",
                     Rank = LawEnforcementRank.Detective,
                     PoliceDepartmentCode = "WAW078",
                     City = "Warszawa",
@@ -53,7 +53,7 @@ namespace REP_CRIME01.Police.Infrastructure.Context
                 new LawEnforcement()
                 {
                     Id = Guid.Parse("0a30a2fb-de36-432e-af10-479a1ee660b7"),
-                    Code = "WXRA193",
+                    Code = "WXA193",
                     Rank = LawEnforcementRank.Sergeant,
                     PoliceDepartmentCode = "WAW008",
                     City = "Warszawa",
@@ -61,7 +61,7 @@ namespace REP_CRIME01.Police.Infrastructure.Context
                 new LawEnforcement()
                 {
                     Id = Guid.Parse("8157a714-02f7-4da4-b6a1-5a2dbe5bc681"),
-                    Code = "PRSI312",
+                    Code = "PRI312",
                     Rank = LawEnforcementRank.Officer,
                     PoliceDepartmentCode = "ZGA002",
                     City = "Zielona Góra",

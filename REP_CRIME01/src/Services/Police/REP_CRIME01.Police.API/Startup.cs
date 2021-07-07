@@ -4,15 +4,11 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using REP_CRIME01.Police.API.Middlewares;
 using REP_CRIME01.Police.Application;
 using REP_CRIME01.Police.Infrastructure;
 using REP_CRIME01.Police.Infrastructure.Context;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace REP_CRIME01.Police.API
 {
@@ -30,11 +26,13 @@ namespace REP_CRIME01.Police.API
         {
             services.AddInfrastructureServices(Configuration);
             services.AddApplicationServices(Configuration);
+            services.AddScoped<ErrorHandlingMiddleware>();
 
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "REP_CRIME01.Police.API", Version = "v1" });
+                c.CustomSchemaIds(x => x.FullName);
             });
         }
 
@@ -45,8 +43,14 @@ namespace REP_CRIME01.Police.API
             {
                 app.UseDeveloperExceptionPage();
                 app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "REP_CRIME01.Police.API v1"));
+                app.UseSwaggerUI(c =>
+                {
+                    c.SwaggerEndpoint("/swagger/v1/swagger.json", "REP_CRIME01.Crime.API v1");
+                    c.DefaultModelsExpandDepth(-1);
+                });
             }
+
+            app.UseMiddleware<ErrorHandlingMiddleware>();
 
             app.UseRouting();
 

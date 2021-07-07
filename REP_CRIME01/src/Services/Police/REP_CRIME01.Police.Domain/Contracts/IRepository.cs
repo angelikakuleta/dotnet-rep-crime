@@ -12,6 +12,7 @@ namespace REP_CRIME01.Police.Domain.Contracts
         Task UpdateAsync(TEntity entity);
         Task<bool> DeleteByIdAsync(Guid id);
         Task<TEntity> FindByIdAsync(Guid id);
+        Task<TEntity> FindAsync(Expression<Func<TEntity, bool>> filterExpression);
         Task<IEnumerable<TEntity>> FindAllAsync(
             Expression<Func<TEntity, bool>> filterExpression, 
             Expression<Func<TEntity, object>> sortBy, 

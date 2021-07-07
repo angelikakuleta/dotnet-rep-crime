@@ -17,12 +17,13 @@ namespace REP_CRIME01.Police.Infrastructure.Repositories
 
         public Repository(PoliceContext context)
         {
-            context = context ?? throw new ArgumentNullException(nameof(context));
+            this.context = context ?? throw new ArgumentNullException(nameof(context));
             dbSet = context.Set<TEntity>();
         }
 
         public virtual async Task<TEntity> AddAsync(TEntity entity)
         {
+            entity.CreatedDate = DateTime.Now;
             dbSet.Add(entity);
             await context.SaveChangesAsync();
             return entity;
@@ -53,6 +54,11 @@ namespace REP_CRIME01.Police.Infrastructure.Repositories
                 .ToListAsync();
         }
 
+        public virtual async Task<TEntity> FindAsync(Expression<Func<TEntity, bool>> filterExpression)
+        {
+            return await dbSet.Where(filterExpression).FirstOrDefaultAsync();
+        }
+
         public virtual async Task<TEntity> FindByIdAsync(Guid id)
         {
             return await dbSet.FirstOrDefaultAsync(x => x.Id == id);
@@ -60,6 +66,7 @@ namespace REP_CRIME01.Police.Infrastructure.Repositories
 
         public virtual async Task UpdateAsync(TEntity entity)
         {
+            entity.LastModifiedDate = DateTime.Now;
             dbSet.Update(entity);
             await context.SaveChangesAsync();
         }

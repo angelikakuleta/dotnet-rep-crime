@@ -1,6 +1,6 @@
 ﻿using REP_CRIME01.CQRSResponse.Responses;
 
-namespace REP_CRIME01.Crime.API.Extensions
+namespace REP_CRIME01.CQRSResponse
 {
     public static class BaseResponseextensions
     {
