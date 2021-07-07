@@ -13,6 +13,8 @@ namespace REP_CRIME01.Crime.Application.Profiles
         {
             CreateMap<CreateCrimeEvent.Command, CrimeEvent>()
                 .ForMember(d => d.EventPlace, o => o.MapFrom(x => new EventPlace(x.City, x.Street)));
+            CreateMap<UpdateCrimeEvent.Command, CrimeEvent>()
+                .ForMember(d => d.EventPlace, o => o.MapFrom(x => new EventPlace(x.City, x.Street)));
             CreateMap<CrimeEvent, CrimeEventVM>();
         }
     }
