@@ -3,6 +3,10 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using REP_CRIME01.Crime.API.Extensions;
 using REP_CRIME01.Crime.Application.Commands;
+using REP_CRIME01.Crime.Application.Models;
+using REP_CRIME01.Crime.Application.Queries;
+using REP_CRIME01.Crime.Application.Queries.GetCrimeEventById;
+using REP_CRIME01.Crime.Application.Responses;
 using REP_CRIME01.Crime.Domain.Contracts;
 using REP_CRIME01.Crime.Domain.Entities;
 using System;
@@ -24,16 +28,24 @@ namespace REP_CRIME01.Crime.API.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult> GetAsync()
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(PaginatedResult<CrimeEventVM>))]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public async Task<ActionResult> GetAsync([FromQuery] GetCrimeEvents.Query query)
         {
-            return Ok(await _repository.FindAllAsync(x => 1 == 1, x => x.EventDate, false, 1, 10));
+            var response = await _mediator.Send(query);
+            return response.IsSuccess ?
+                Ok(response.Result)
+                : StatusCode(response.GetStatusCode(), response.ErrorMessage);
         }
 
 
         [HttpGet("{id:Guid}")]
         public async Task<ActionResult> GetByIdAsync(Guid id)
         {
-            return Ok(await _repository.FindByIdAsync(id));
+            var response = await _mediator.Send(new GetCrimeEventById.Query { EventId = id });
+            return response.IsSuccess ?
+                Ok(response.Result)
+                : StatusCode(response.GetStatusCode(), response.ErrorMessage);
         }
 
         [HttpPost]
@@ -42,12 +54,9 @@ namespace REP_CRIME01.Crime.API.Controllers
         public async Task<ActionResult> CreateAsync([FromBody] CreateCrimeEvent.Command command)
         {
             var response = await _mediator.Send(command);
-            if (!response.IsSuccess)
-            {
-                return StatusCode(response.GetStatusCode(), response.ErrorMessage);
-            }
-
-            return Ok(response.Result);
+            return response.IsSuccess ?
+                Ok(response.Result)
+                : StatusCode(response.GetStatusCode(), response.ErrorMessage);
         }
 
         [HttpPut("{id:Guid}")]
@@ -61,7 +70,6 @@ namespace REP_CRIME01.Crime.API.Controllers
         public async Task<ActionResult> DeleteAsnc(Guid id)
         {
             await _repository.DeleteByIdAsync(id);
-
             return NoContent();
         }
     }

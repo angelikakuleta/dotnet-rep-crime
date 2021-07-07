@@ -9,7 +9,6 @@ namespace REP_CRIME01.Crime.Application.Commands
 {
     public static partial class CreateCrimeEvent
     {
-
         public class Handler : IRequestHandler<Command, Response>
         {
             private readonly IRepository<CrimeEvent> _repository;

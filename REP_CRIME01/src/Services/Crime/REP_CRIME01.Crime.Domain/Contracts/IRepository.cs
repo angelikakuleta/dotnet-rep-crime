@@ -1,4 +1,5 @@
 ﻿using REP_CRIME01.Crime.Domain.Common;
+using REP_CRIME01.Crime.Domain.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
@@ -15,6 +16,7 @@ namespace REP_CRIME01.Crime.Domain.Contracts
         Task<IEnumerable<TEntity>> FindAllAsync(
             Expression<Func<TEntity, bool>> filterExpression, 
             Expression<Func<TEntity, object>> sortBy, 
-            bool sortAsync, int page, int pageSize);
+            bool sortAsc, int page, int pageSize);
+        Task<long> CountAsync(Expression<Func<TEntity, bool>> filterExpression);
     }
 }
