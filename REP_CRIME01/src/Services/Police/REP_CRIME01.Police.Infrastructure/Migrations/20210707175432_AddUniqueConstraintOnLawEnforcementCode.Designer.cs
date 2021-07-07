@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using REP_CRIME01.Police.Infrastructure.Context;
 
 namespace REP_CRIME01.Police.Infrastructure.Migrations
 {
     [DbContext(typeof(PoliceContext))]
-    partial class PoliceContextModelSnapshot : ModelSnapshot
+    [Migration("20210707175432_AddUniqueConstraintOnLawEnforcementCode")]
+    partial class AddUniqueConstraintOnLawEnforcementCode
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

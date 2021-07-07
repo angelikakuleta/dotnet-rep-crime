@@ -18,6 +18,7 @@ namespace REP_CRIME01.Police.Infrastructure.Context
             base.OnModelCreating(modelBuilder);
 
             modelBuilder.Entity<LawEnforcement>().ToTable("LawEnforcement");
+            modelBuilder.Entity<LawEnforcement>().HasIndex(x => x.Code).IsUnique();
             modelBuilder.Entity<LawEnforcement>().Property(x => x.Rank).HasConversion<string>();
             modelBuilder.Entity<Case>().ToTable("Case");
 
