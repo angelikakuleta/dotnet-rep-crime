@@ -1,8 +1,8 @@
-﻿namespace REP_CRIME01.Crime.Application.Responses
+﻿namespace REP_CRIME01.CQRSResponse.Responses
 {
     public enum ResponseStatus
     {
-        Success = 0,
+        Success,
         NotFound,
         BadQuery,
         ValidationError

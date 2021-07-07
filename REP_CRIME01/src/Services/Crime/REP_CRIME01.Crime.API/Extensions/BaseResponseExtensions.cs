@@ -1,4 +1,4 @@
-﻿using REP_CRIME01.Crime.Application.Responses;
+﻿using REP_CRIME01.CQRSResponse.Responses;
 
 namespace REP_CRIME01.Crime.API.Extensions
 {

@@ -5,7 +5,6 @@ using REP_CRIME01.Crime.API.Extensions;
 using REP_CRIME01.Crime.Application.Commands;
 using REP_CRIME01.Crime.Application.Models;
 using REP_CRIME01.Crime.Application.Queries;
-using REP_CRIME01.Crime.Application.Responses;
 using System;
 using System.Threading.Tasks;
 

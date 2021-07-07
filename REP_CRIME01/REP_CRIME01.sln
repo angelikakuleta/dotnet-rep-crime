@@ -15,27 +15,29 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web", "Web", "{50419A6B-3A0
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BuildingBlocks", "BuildingBlocks", "{7184EB76-26D1-4DDD-B246-38A19C9BEAD5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "REP_CRIME01.Crime.Domain", "src\Services\Crime\REP_CRIME01.Crime.Domain\REP_CRIME01.Crime.Domain.csproj", "{50416DCD-4234-4FE9-94AD-26D80BB39909}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "REP_CRIME01.Crime.Domain", "src\Services\Crime\REP_CRIME01.Crime.Domain\REP_CRIME01.Crime.Domain.csproj", "{50416DCD-4234-4FE9-94AD-26D80BB39909}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "REP_CRIME01.Crime.Infrastructure", "src\Services\Crime\REP_CRIME01.Crime.Infrastructure\REP_CRIME01.Crime.Infrastructure.csproj", "{7941E63B-2AC3-4525-A318-E184A8550D9D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "REP_CRIME01.Crime.Infrastructure", "src\Services\Crime\REP_CRIME01.Crime.Infrastructure\REP_CRIME01.Crime.Infrastructure.csproj", "{7941E63B-2AC3-4525-A318-E184A8550D9D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "REP_CRIME01.Crime.Application", "src\Services\Crime\REP_CRIME01.Crime.Application\REP_CRIME01.Crime.Application.csproj", "{612BEE17-13F5-4F95-802F-03D80531D4BB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "REP_CRIME01.Crime.Application", "src\Services\Crime\REP_CRIME01.Crime.Application\REP_CRIME01.Crime.Application.csproj", "{612BEE17-13F5-4F95-802F-03D80531D4BB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "REP_CRIME01.Crime.API", "src\Services\Crime\REP_CRIME01.Crime.API\REP_CRIME01.Crime.API.csproj", "{33C20558-5DDF-4B01-AD02-5FAFB4E49E3F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "REP_CRIME01.Crime.API", "src\Services\Crime\REP_CRIME01.Crime.API\REP_CRIME01.Crime.API.csproj", "{33C20558-5DDF-4B01-AD02-5FAFB4E49E3F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "REP_CRIME01.CrimeFeedback", "src\Services\CrimeFeedback\REP_CRIME01.CrimeFeedback\REP_CRIME01.CrimeFeedback.csproj", "{18CBABFB-1FBC-4B9B-AEB7-F7C4FC19C8F0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "REP_CRIME01.CrimeFeedback", "src\Services\CrimeFeedback\REP_CRIME01.CrimeFeedback\REP_CRIME01.CrimeFeedback.csproj", "{18CBABFB-1FBC-4B9B-AEB7-F7C4FC19C8F0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "REP_CRIME01.Police.Domain", "src\Services\Police\REP_CRIME01.Police.Domain\REP_CRIME01.Police.Domain.csproj", "{D581AA3F-52AA-44A3-ACDA-CFB6B5CF95CA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "REP_CRIME01.Police.Domain", "src\Services\Police\REP_CRIME01.Police.Domain\REP_CRIME01.Police.Domain.csproj", "{D581AA3F-52AA-44A3-ACDA-CFB6B5CF95CA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "REP_CRIME01.Police.Infrastructure", "src\Services\Police\REP_CRIME01.Police.Infrastructure\REP_CRIME01.Police.Infrastructure.csproj", "{BC78079F-96C1-49C9-9548-8E78F2C4D8C4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "REP_CRIME01.Police.Infrastructure", "src\Services\Police\REP_CRIME01.Police.Infrastructure\REP_CRIME01.Police.Infrastructure.csproj", "{BC78079F-96C1-49C9-9548-8E78F2C4D8C4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "REP_CRIME01.Police.Application", "src\Services\Police\REP_CRIME01.Police.Application\REP_CRIME01.Police.Application.csproj", "{858B5A95-B43E-43EE-B177-A66FE947F0E6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "REP_CRIME01.Police.Application", "src\Services\Police\REP_CRIME01.Police.Application\REP_CRIME01.Police.Application.csproj", "{858B5A95-B43E-43EE-B177-A66FE947F0E6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "REP_CRIME01.Police.API", "src\Services\Police\REP_CRIME01.Police.API\REP_CRIME01.Police.API.csproj", "{5A00A3CE-C32A-476F-BD45-13703D631106}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "REP_CRIME01.Police.API", "src\Services\Police\REP_CRIME01.Police.API\REP_CRIME01.Police.API.csproj", "{5A00A3CE-C32A-476F-BD45-13703D631106}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "REP_CRIME01.CrimeReportWeb", "src\Web\REP_CRIME01.CrimeReportWeb\REP_CRIME01.CrimeReportWeb.csproj", "{02B0EB2E-CC99-4313-ABA3-2725EDCEB000}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "REP_CRIME01.CrimeReportWeb", "src\Web\REP_CRIME01.CrimeReportWeb\REP_CRIME01.CrimeReportWeb.csproj", "{02B0EB2E-CC99-4313-ABA3-2725EDCEB000}"
 EndProject
 Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{170CF7D6-9C2A-4CC7-856A-F13B8304C0DA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "REP_CRIME01.CQRSResponse", "src\BuildingBlocks\REP_CRIME01.CQRSResponse\REP_CRIME01.CQRSResponse.csproj", "{B967F9FB-3B2F-48E5-952D-8FC802C9219D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -87,6 +89,10 @@ Global
 		{170CF7D6-9C2A-4CC7-856A-F13B8304C0DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{170CF7D6-9C2A-4CC7-856A-F13B8304C0DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{170CF7D6-9C2A-4CC7-856A-F13B8304C0DA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B967F9FB-3B2F-48E5-952D-8FC802C9219D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B967F9FB-3B2F-48E5-952D-8FC802C9219D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B967F9FB-3B2F-48E5-952D-8FC802C9219D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B967F9FB-3B2F-48E5-952D-8FC802C9219D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -105,6 +111,7 @@ Global
 		{858B5A95-B43E-43EE-B177-A66FE947F0E6} = {2AFD53F8-63A4-4A39-A067-7388AEFC1F02}
 		{5A00A3CE-C32A-476F-BD45-13703D631106} = {2AFD53F8-63A4-4A39-A067-7388AEFC1F02}
 		{02B0EB2E-CC99-4313-ABA3-2725EDCEB000} = {50419A6B-3A0F-4198-9CC1-69CB6CD45A9B}
+		{B967F9FB-3B2F-48E5-952D-8FC802C9219D} = {7184EB76-26D1-4DDD-B246-38A19C9BEAD5}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B8CEC17D-A117-4686-A4C7-21189FCA6047}

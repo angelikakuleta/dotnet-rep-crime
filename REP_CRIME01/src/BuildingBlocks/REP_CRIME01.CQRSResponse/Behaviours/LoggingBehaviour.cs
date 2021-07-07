@@ -5,7 +5,7 @@ using System.Diagnostics;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace REP_CRIME01.Crime.Application.Behaviours
+namespace REP_CRIME01.CQRSResponse.Behaviours
 {
     public class LoggingBehaviour<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse>
     {

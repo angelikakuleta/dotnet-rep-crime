@@ -1,14 +1,14 @@
 ﻿using FluentValidation;
 using MediatR;
 using Microsoft.Extensions.Logging;
-using REP_CRIME01.Crime.Application.Responses;
+using REP_CRIME01.CQRSResponse.Responses;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace REP_CRIME01.Crime.Application.Behaviours
+namespace REP_CRIME01.CQRSResponse.Behaviours
 {
     public class ValidationBehaviour<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse> 
         where TResponse : BaseResponse, new()

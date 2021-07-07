@@ -5,7 +5,7 @@ using Microsoft.Extensions.DependencyInjection;
 using FluentValidation;
 using REP_CRIME01.CQRSResponse.Behaviours;
 
-namespace REP_CRIME01.Crime.Application
+namespace REP_CRIME01.Police.Application
 {
     public static partial class ServiceRegistration
     {

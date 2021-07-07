@@ -6,6 +6,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using REP_CRIME01.Police.Application;
 using REP_CRIME01.Police.Infrastructure;
 using REP_CRIME01.Police.Infrastructure.Context;
 using System;
@@ -28,6 +29,7 @@ namespace REP_CRIME01.Police.API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddInfrastructureServices(Configuration);
+            services.AddApplicationServices(Configuration);
 
             services.AddControllers();
             services.AddSwaggerGen(c =>

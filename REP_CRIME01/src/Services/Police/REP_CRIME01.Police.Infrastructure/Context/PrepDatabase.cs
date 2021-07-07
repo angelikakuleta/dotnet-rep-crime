@@ -12,11 +12,9 @@ namespace REP_CRIME01.Police.Infrastructure.Context
     {
         public static void PrepPopulation(IApplicationBuilder app)
         {
-            using (var serviceScope = app.ApplicationServices.CreateScope())
-            {
-                var serviceProvider = serviceScope.ServiceProvider;
-                SeedData(serviceProvider.GetService<PoliceContext>(), serviceProvider.GetService<ILogger<PrepDatabase>>());
-            }      
+            using var serviceScope = app.ApplicationServices.CreateScope();
+            var serviceProvider = serviceScope.ServiceProvider;
+            SeedData(serviceProvider.GetService<PoliceContext>(), serviceProvider.GetService<ILogger<PrepDatabase>>());
         }
 
         private static void SeedData(PoliceContext context, ILogger<PrepDatabase> logger)

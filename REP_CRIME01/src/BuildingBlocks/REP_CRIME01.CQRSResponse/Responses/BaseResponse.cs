@@ -1,4 +1,4 @@
-﻿namespace REP_CRIME01.Crime.Application.Responses
+﻿namespace REP_CRIME01.CQRSResponse.Responses
 {
     public record BaseResponse
     {

@@ -1,6 +1,5 @@
-﻿using AutoMapper;
-using MediatR;
-using REP_CRIME01.Crime.Application.Responses;
+﻿using MediatR;
+using REP_CRIME01.CQRSResponse.Responses;
 using REP_CRIME01.Crime.Domain.Contracts;
 using REP_CRIME01.Crime.Domain.Entities;
 using System.Threading;
