@@ -23,5 +23,7 @@ namespace REP_CRIME01.Crime.Domain.Entities
         public string Status { get; set; } = EventStatus.Waiting.ToString();
 
         public string LawEnforcementCode { get; set; }
+
+        public bool IsLawEnforcementAssigned => !string.IsNullOrEmpty(LawEnforcementCode);
     }
 }

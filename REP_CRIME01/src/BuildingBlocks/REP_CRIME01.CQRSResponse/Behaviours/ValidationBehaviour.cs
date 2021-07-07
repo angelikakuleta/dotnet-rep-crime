@@ -34,7 +34,7 @@ namespace REP_CRIME01.CQRSResponse.Behaviours
                     return new TResponse { Status = ResponseStatus.ValidationError, ErrorMessage = failures };
             }
 
-            _logger.LogInformation("Validation successful for {request}.", request.GetType());
+            _logger.LogInformation("Validation successful for {request}.", request.GetType().FullName);
             return await next();
         }
     }

@@ -4,8 +4,8 @@ using Microsoft.AspNetCore.Mvc;
 using REP_CRIME01.CQRSResponse;
 using REP_CRIME01.Police.Application.CaseFeatures.Commands;
 using REP_CRIME01.Police.Application.CaseFeatures.Queries;
-using REP_CRIME01.Police.Application.LawEnforcementFeatures.Commands;
 using REP_CRIME01.Police.Application.Models;
+using REP_CRIME01.Police.Common.DTOs;
 using System;
 using System.Threading.Tasks;
 
@@ -47,9 +47,9 @@ namespace REP_CRIME01.Police.API.Controllers
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(Guid))]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public async Task<ActionResult> CreateAsync([FromBody] CreateCase.Command command)
+        public async Task<ActionResult> CreateAsync([FromBody] CreateCaseDto dto)
         {
-            var response = await _mediator.Send(command);
+            var response = await _mediator.Send(new CreateCase.Command { CreateCaseDto = dto });
             return response.IsSuccess ?
                 Ok(response.Result)
                 : StatusCode(response.GetStatusCode(), response.ErrorMessage);
@@ -59,14 +59,14 @@ namespace REP_CRIME01.Police.API.Controllers
         [ProducesResponseType(StatusCodes.Status202Accepted)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public async Task<ActionResult> UpdateAsync(Guid id, [FromBody] UpdateCase.Command command)
+        public async Task<ActionResult> UpdateAsync(Guid id, [FromBody] UpdateCaseDto dto)
         {
-            if (id != command.Id)
+            if (id != dto.Id)
             {
                 return BadRequest();
             }
 
-            var response = await _mediator.Send(command);
+            var response = await _mediator.Send(new UpdateCase.Command { UpdateCaseDto = dto });
             return response.IsSuccess ?
                 Accepted()
                 : StatusCode(response.GetStatusCode(), response.ErrorMessage);

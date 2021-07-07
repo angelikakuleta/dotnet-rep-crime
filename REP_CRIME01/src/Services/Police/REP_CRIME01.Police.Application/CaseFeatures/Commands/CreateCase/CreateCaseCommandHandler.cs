@@ -25,11 +25,11 @@ namespace REP_CRIME01.Police.Application.CaseFeatures.Commands
 
             public async Task<Response> Handle(Command request, CancellationToken cancellationToken)
             {
-                var lawEnforcementEntity = await _lawEnforcementRepository.FindAsync(x => x.Code == request.LawEnforcementCode);
+                var lawEnforcementEntity = await _lawEnforcementRepository.FindAsync(x => x.Code == request.CreateCaseDto.LawEnforcementCode);
                 if (lawEnforcementEntity is null)
                     return new Response { Status = ResponseStatus.BadQuery, ErrorMessage = "The object with given code doesn't exists." };
 
-                var entity = _mapper.Map<Case>(request);
+                var entity = _mapper.Map<Case>(request.CreateCaseDto);
                 entity.LawEnforcement = lawEnforcementEntity;
                 await _caseRepository.AddAsync(entity);
                 return new Response { Result = entity.Id };

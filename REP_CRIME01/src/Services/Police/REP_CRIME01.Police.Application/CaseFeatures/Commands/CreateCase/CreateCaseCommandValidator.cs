@@ -10,11 +10,11 @@ namespace REP_CRIME01.Police.Application.CaseFeatures.Commands
         {
             public Validator()
             {
-                RuleFor(x => x.CrimeReportId).NotEmpty();
-                RuleFor(x => x.CrimeDate).NotEmpty().LessThan(DateTime.Now);
-                RuleFor(x => x.DateReported).NotEmpty().LessThan(DateTime.Now);
-                RuleFor(x => x.LawEnforcementCode).NotEmpty().Length(6);
-                RuleFor(x => x.Description).NotEmpty();
+                RuleFor(x => x.CreateCaseDto.CrimeReportId).NotEmpty();
+                RuleFor(x => x.CreateCaseDto.CrimeDate).NotEmpty().LessThan(DateTime.Now);
+                RuleFor(x => x.CreateCaseDto.DateReported).NotEmpty().LessThan(DateTime.Now);
+                RuleFor(x => x.CreateCaseDto.LawEnforcementCode).NotEmpty().Length(6);
+                RuleFor(x => x.CreateCaseDto.Description).NotEmpty();
             }
         }
     }    

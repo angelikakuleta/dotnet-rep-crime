@@ -22,6 +22,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\..\BuildingBlocks\REP_CRIME01.CQRSResponse\REP_CRIME01.CQRSResponse.csproj" />
+    <ProjectReference Include="..\..\..\BuildingBlocks\REP_CRIME01.Police.Common\REP_CRIME01.Police.Common.csproj" />
     <ProjectReference Include="..\REP_CRIME01.Police.Domain\REP_CRIME01.Police.Domain.csproj" />
     <ProjectReference Include="..\REP_CRIME01.Police.Infrastructure\REP_CRIME01.Police.Infrastructure.csproj" />
   </ItemGroup>

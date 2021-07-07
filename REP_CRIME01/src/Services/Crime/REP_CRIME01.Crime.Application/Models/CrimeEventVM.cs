@@ -11,5 +11,6 @@ namespace REP_CRIME01.Crime.Application.Models
         public string Description { get; init; }
         public EventPlaceDto EventPlace { get; init; }
         public string Status { get; init; }
+        public string LawEnforcementCode { get; init; }
     }
 }

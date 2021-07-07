@@ -81,5 +81,23 @@ namespace REP_CRIME01.Crime.API.Controllers
                 NoContent()
                 : StatusCode(response.GetStatusCode(), response.ErrorMessage);
         }
+
+        [HttpPost]
+        [Route("{id:Guid}/assign")]
+        [ProducesResponseType(StatusCodes.Status202Accepted)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public async Task<ActionResult> AssignAsync(Guid id, [FromBody] AssignCrimeEventToPolice.Command command)
+        {
+            if (id != command.Id)
+            {
+                return BadRequest();
+            }
+
+            var response = await _mediator.Send(command);
+            return response.IsSuccess ?
+                Accepted()
+                : StatusCode(response.GetStatusCode(), response.ErrorMessage);
+        }
     }
 }
