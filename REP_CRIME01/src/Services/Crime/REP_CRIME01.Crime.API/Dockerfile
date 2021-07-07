@@ -10,6 +10,7 @@ COPY ["src/Services/Crime/REP_CRIME01.Crime.API/REP_CRIME01.Crime.API.csproj", "
 COPY ["src/Services/Crime/REP_CRIME01.Crime.Application/REP_CRIME01.Crime.Application.csproj", "src/Services/Crime/REP_CRIME01.Crime.Application/"]
 COPY ["src/Services/Crime/REP_CRIME01.Crime.Domain/REP_CRIME01.Crime.Domain.csproj", "src/Services/Crime/REP_CRIME01.Crime.Domain/"]
 COPY ["src/Services/Crime/REP_CRIME01.Crime.Infrastructure/REP_CRIME01.Crime.Infrastructure.csproj", "src/Services/Crime/REP_CRIME01.Crime.Infrastructure/"]
+COPY ["src/BuildingBlocks/REP_CRIME01.CQRSResponse/REP_CRIME01.CQRSResponse.csproj", "src/BuildingBlocks/REP_CRIME01.CQRSResponse/"]
 RUN dotnet restore "src/Services/Crime/REP_CRIME01.Crime.API/REP_CRIME01.Crime.API.csproj"
 COPY . .
 WORKDIR "/src/src/Services/Crime/REP_CRIME01.Crime.API"

@@ -2,7 +2,7 @@
 {
     public enum EventType
     {
-        Bulgary = 0,
+        Burglary = 0,
         Assault,
         Arson,
         DomesticAbuse,

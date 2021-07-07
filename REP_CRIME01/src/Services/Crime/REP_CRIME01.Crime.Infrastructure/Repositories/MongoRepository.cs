@@ -2,7 +2,6 @@
 using MongoDB.Driver;
 using REP_CRIME01.Crime.Domain.Common;
 using REP_CRIME01.Crime.Domain.Contracts;
-using REP_CRIME01.Crime.Domain.Entities;
 using REP_CRIME01.Crime.Infrastructure.Settings;
 using System;
 using System.Collections.Generic;

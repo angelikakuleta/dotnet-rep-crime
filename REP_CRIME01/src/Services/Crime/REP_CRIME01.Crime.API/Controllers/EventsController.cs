@@ -2,9 +2,9 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using REP_CRIME01.CQRSResponse;
-using REP_CRIME01.Crime.Application.Commands;
+using REP_CRIME01.Crime.Application.EventFeatures.Commands;
+using REP_CRIME01.Crime.Application.EventFeatures.Queries;
 using REP_CRIME01.Crime.Application.Models;
-using REP_CRIME01.Crime.Application.Queries;
 using System;
 using System.Threading.Tasks;
 

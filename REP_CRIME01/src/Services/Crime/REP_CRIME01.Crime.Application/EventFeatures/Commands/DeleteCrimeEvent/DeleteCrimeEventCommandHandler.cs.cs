@@ -5,7 +5,7 @@ using REP_CRIME01.Crime.Domain.Entities;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace REP_CRIME01.Crime.Application.Commands
+namespace REP_CRIME01.Crime.Application.EventFeatures.Commands
 {
     public static partial class DeleteCrimeEvent
     {

@@ -7,7 +7,7 @@ using REP_CRIME01.Crime.Domain.Entities;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace REP_CRIME01.Crime.Application.Queries
+namespace REP_CRIME01.Crime.Application.EventFeatures.Queries
 {
     public static partial class GetCrimeEventById
     {

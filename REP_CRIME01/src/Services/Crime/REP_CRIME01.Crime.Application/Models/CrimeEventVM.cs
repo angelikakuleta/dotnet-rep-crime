@@ -9,7 +9,7 @@ namespace REP_CRIME01.Crime.Application.Models
         public DateTime EventDate { get; init; }
         public string EventType { get; init; }
         public string Description { get; init; }
-        public EventPlace EventPlace { get; init; }
+        public EventPlaceDto EventPlace { get; init; }
         public string Status { get; init; }
     }
 }

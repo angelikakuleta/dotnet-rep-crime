@@ -2,7 +2,7 @@
 using REP_CRIME01.CQRSResponse.Responses;
 using System;
 
-namespace REP_CRIME01.Crime.Application.Commands
+namespace REP_CRIME01.Crime.Application.EventFeatures.Commands
 {
     public static partial class CreateCrimeEvent
     {

@@ -1,6 +1,5 @@
 ﻿using AutoMapper;
 using MediatR;
-using REP_CRIME01.CQRSResponse.Responses;
 using REP_CRIME01.Crime.Application.Models;
 using REP_CRIME01.Crime.Domain.Contracts;
 using REP_CRIME01.Crime.Domain.Entities;
@@ -10,7 +9,7 @@ using System.Linq.Expressions;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace REP_CRIME01.Crime.Application.Queries
+namespace REP_CRIME01.Crime.Application.EventFeatures.Queries
 {
 
     public static partial class GetCrimeEvents

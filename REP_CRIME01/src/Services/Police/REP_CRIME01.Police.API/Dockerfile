@@ -9,6 +9,7 @@ WORKDIR /src
 COPY ["src/Services/Police/REP_CRIME01.Police.API/REP_CRIME01.Police.API.csproj", "src/Services/Police/REP_CRIME01.Police.API/"]
 COPY ["src/Services/Police/REP_CRIME01.Police.Application/REP_CRIME01.Police.Application.csproj", "src/Services/Police/REP_CRIME01.Police.Application/"]
 COPY ["src/Services/Police/REP_CRIME01.Police.Domain/REP_CRIME01.Police.Domain.csproj", "src/Services/Police/REP_CRIME01.Police.Domain/"]
+COPY ["src/BuildingBlocks/REP_CRIME01.CQRSResponse/REP_CRIME01.CQRSResponse.csproj", "src/BuildingBlocks/REP_CRIME01.CQRSResponse/"]
 COPY ["src/Services/Police/REP_CRIME01.Police.Infrastructure/REP_CRIME01.Police.Infrastructure.csproj", "src/Services/Police/REP_CRIME01.Police.Infrastructure/"]
 RUN dotnet restore "src/Services/Police/REP_CRIME01.Police.API/REP_CRIME01.Police.API.csproj"
 COPY . .

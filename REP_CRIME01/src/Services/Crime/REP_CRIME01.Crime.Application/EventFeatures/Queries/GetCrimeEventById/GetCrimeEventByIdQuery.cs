@@ -3,7 +3,7 @@ using REP_CRIME01.CQRSResponse.Responses;
 using REP_CRIME01.Crime.Application.Models;
 using System;
 
-namespace REP_CRIME01.Crime.Application.Queries
+namespace REP_CRIME01.Crime.Application.EventFeatures.Queries
 {
     public static partial class GetCrimeEventById
     {

@@ -22,6 +22,6 @@ namespace REP_CRIME01.Crime.Domain.Entities
         [EnumDataType(typeof(EventStatus))]
         public string Status { get; set; } = EventStatus.Waiting.ToString();
 
-        public Guid? LawEnforcementId { get; set; }
+        public string LawEnforcementCode { get; set; }
     }
 }
