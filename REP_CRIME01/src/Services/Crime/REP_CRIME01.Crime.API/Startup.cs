@@ -25,6 +25,7 @@ namespace REP_CRIME01.Crime.API
         {
             services.AddInfrastructureWithMongoDbServices(Configuration);
             services.AddApplicationServices(Configuration);
+            services.AddScoped<ErrorHandlingMiddleware>();
 
             services.AddControllers();
             services.AddSwaggerGen(c =>
@@ -44,8 +45,11 @@ namespace REP_CRIME01.Crime.API
                 app.UseSwaggerUI(c =>
                 {
                     c.SwaggerEndpoint("/swagger/v1/swagger.json", "REP_CRIME01.Crime.API v1");
+                    c.DefaultModelsExpandDepth(-1);
                 });
             }
+
+            app.UseMiddleware<ErrorHandlingMiddleware>();
 
             app.UseRouting();
 
