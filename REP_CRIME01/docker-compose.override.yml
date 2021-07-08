@@ -16,15 +16,23 @@ services:
     ports:
       - "1403:1433"
 
+  rabbitmq:
+    container_name: rabbitmq
+    restart: always
+    ports:
+     - "5672:5672"
+     - "15672:15672"
+
   rep_crime01.crime.api:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
       - MongoDbSettings:ConnectionString=mongodb://mongodb:27017
       - MongoDbSettings:DatabaseName=crimedb
       - HttpClientsDns:PoliceClient=http://rep_crime01.police.api
-      - EventBusSettings:HostAddress=amqp://guest:guest@localhost:5672
+      - EventBusSettings:HostAddress=rabbitmq
     depends_on:
       - mongodb
+      - rabbitmq
     ports:
       - "8001:80"
 

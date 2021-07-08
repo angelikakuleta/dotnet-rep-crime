@@ -9,6 +9,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\..\BuildingBlocks\REP_CRIME01.CQRSResponse\REP_CRIME01.CQRSResponse.csproj" />
+    <ProjectReference Include="..\..\..\BuildingBlocks\REP_CRIME01.EventBus\REP_CRIME01.EventBus.csproj" />
     <ProjectReference Include="..\REP_CRIME01.Crime.Common\REP_CRIME01.Crime.Common.csproj" />
     <ProjectReference Include="..\REP_CRIME01.Crime.Domain\REP_CRIME01.Crime.Domain.csproj" />
     <ProjectReference Include="..\REP_CRIME01.Crime.Infrastructure\REP_CRIME01.Crime.Infrastructure.csproj" />

@@ -10,6 +10,7 @@ COPY ["src/Services/Crime/REP_CRIME01.Crime.API/REP_CRIME01.Crime.API.csproj", "
 COPY ["src/Services/Crime/REP_CRIME01.Crime.Application/REP_CRIME01.Crime.Application.csproj", "src/Services/Crime/REP_CRIME01.Crime.Application/"]
 COPY ["src/Services/Crime/REP_CRIME01.Crime.Domain/REP_CRIME01.Crime.Domain.csproj", "src/Services/Crime/REP_CRIME01.Crime.Domain/"]
 COPY ["src/Services/Crime/REP_CRIME01.Crime.Common/REP_CRIME01.Crime.Common.csproj", "src/Services/Crime/REP_CRIME01.Crime.Common/"]
+COPY ["src/BuildingBlocks/REP_CRIME01.EventBus/REP_CRIME01.EventBus.csproj", "src/BuildingBlocks/REP_CRIME01.EventBus/"]
 COPY ["src/Services/Crime/REP_CRIME01.Crime.Infrastructure/REP_CRIME01.Crime.Infrastructure.csproj", "src/Services/Crime/REP_CRIME01.Crime.Infrastructure/"]
 COPY ["src/Services/Police/REP_CRIME01.Police.Common/REP_CRIME01.Police.Common.csproj", "src/Services/Police/REP_CRIME01.Police.Common/"]
 COPY ["src/BuildingBlocks/REP_CRIME01.CQRSResponse/REP_CRIME01.CQRSResponse.csproj", "src/BuildingBlocks/REP_CRIME01.CQRSResponse/"]

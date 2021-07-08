@@ -7,6 +7,9 @@ services:
   sqldata:
     image: mcr.microsoft.com/mssql/server:2017-latest
 
+  rabbitmq:
+    image: rabbitmq:3-management-alpine
+
   rep_crime01.crime.api:
     image: ${DOCKER_REGISTRY-}repcrime01crimeapi
     build:
