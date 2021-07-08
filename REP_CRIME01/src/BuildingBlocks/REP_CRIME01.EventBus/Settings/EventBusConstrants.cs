@@ -1,7 +1,7 @@
 ﻿namespace REP_CRIME01.EventBus.Settings
 {
-    class EventBusConstrants
+    public class EventBusConstrants
     {
-        public const string CrimeEventAssignedNotificationQueue = "crimeeventassignednotification-queue";
+        public const string CrimeEventAssignedNotificationQueue = "crimeEventAssignedNotificationQueue";
     }
 }

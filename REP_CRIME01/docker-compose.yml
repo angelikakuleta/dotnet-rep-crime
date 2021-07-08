@@ -22,3 +22,8 @@ services:
       context: .
       dockerfile: src/Services/Police/REP_CRIME01.Police.API/Dockerfile
 
+  rep_crime01.crimefeedback:
+    image: ${DOCKER_REGISTRY-}repcrime01crimefeedback
+    build:
+      context: .
+      dockerfile: src/Services/CrimeFeedback/REP_CRIME01.CrimeFeedback/Dockerfile

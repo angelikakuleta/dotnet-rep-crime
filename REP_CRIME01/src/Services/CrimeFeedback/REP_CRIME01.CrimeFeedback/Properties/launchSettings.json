@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "REP_CRIME01.CrimeFeedback": {
+      "commandName": "Project"
+    },
+    "Docker": {
+      "commandName": "Docker"
+    }
+  }
+}

@@ -45,3 +45,9 @@ services:
     ports:
       - "8002:80"
 
+  rep_crime01.crimefeedback:
+    environment:
+    - ASPNETCORE_ENVIRONMENT=Development
+    - EventBusSettings:HostAddress=rabbitmq
+    volumes:
+      - ${APPDATA}/Microsoft/UserSecrets:/root/.microsoft/usersecrets:ro
