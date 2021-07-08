@@ -47,7 +47,7 @@ services:
 
   rep_crime01.crimefeedback:
     environment:
-    - ASPNETCORE_ENVIRONMENT=Development
+    - DOTNET_ENVIRONMENT=Development
     - EventBusSettings:HostAddress=rabbitmq
     volumes:
       - ${APPDATA}/Microsoft/UserSecrets:/root/.microsoft/usersecrets:ro

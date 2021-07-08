@@ -41,13 +41,13 @@ namespace REP_CRIME01.Crime.Application.EventFeatures.Commands
                 if (entity.IsLawEnforcementAssigned)
                     return new Response { Status = ResponseStatus.BadQuery, ErrorMessage = "This report has already been processed." };
 
-                //var result = await CreateCase(request, entity);
-                //if (result is null)
-                //    return new Response { Status = ResponseStatus.BadQuery, ErrorMessage = "The error occured while processing this report." };
+                var result = await CreateCase(request, entity);
+                if (result is null)
+                    return new Response { Status = ResponseStatus.BadQuery, ErrorMessage = "The error occured while processing this report." };
 
-                //entity.Status = EventStatus.Finished.ToString();
-                //entity.LawEnforcementCode = request.AssignCrimeEventToPoliceDto.LawEnforcementCode;
-                //await _repository.UpdateAsync(entity);
+                entity.Status = EventStatus.Finished.ToString();
+                entity.LawEnforcementCode = request.AssignCrimeEventToPoliceDto.LawEnforcementCode;
+                await _repository.UpdateAsync(entity);
 
                 var eventMessage = _mapper.Map<CrimeEventAssignedNotification>(entity);
                 await _publishEndpoint.Publish(eventMessage);

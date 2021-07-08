@@ -9,7 +9,7 @@ namespace REP_CRIME01.CrimeFeedback
     public class Worker : IHostedService
     {
         private readonly ILogger<Worker> _logger;
-        private IBusControl _bus;
+        private readonly IBusControl _bus;
 
         public Worker(ILogger<Worker> logger, IBusControl bus)
         {
