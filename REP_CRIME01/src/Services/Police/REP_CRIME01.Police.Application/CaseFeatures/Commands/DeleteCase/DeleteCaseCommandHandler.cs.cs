@@ -11,9 +11,9 @@ namespace REP_CRIME01.Police.Application.CaseFeatures.Commands
     {
         public class Handler : IRequestHandler<Command, Response>
         {
-            private readonly IRepository<LawEnforcement> _repository;
+            private readonly IRepository<Case> _repository;
 
-            public Handler(IRepository<LawEnforcement> repository)
+            public Handler(IRepository<Case> repository)
             {
                 _repository = repository;
             }

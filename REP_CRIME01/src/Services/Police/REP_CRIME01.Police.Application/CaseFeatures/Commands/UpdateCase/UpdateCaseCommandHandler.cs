@@ -25,7 +25,7 @@ namespace REP_CRIME01.Police.Application.CaseFeatures.Commands
 
             public async Task<Response> Handle(Command request, CancellationToken cancellationToken)
             {
-                var entity = await _caseRepository.FindByIdAsync(request.UpdateCaseDto.Id);
+                var entity = await _caseRepository.FindByIdAsync(request.Id);
                 if (entity is null)
                 {
                     return new Response { Status = ResponseStatus.NotFound };

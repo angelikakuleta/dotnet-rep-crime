@@ -8,7 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\BuildingBlocks\REP_CRIME01.Police.Common\REP_CRIME01.Police.Common.csproj" />
+    <ProjectReference Include="..\..\Police\REP_CRIME01.Police.Common\REP_CRIME01.Police.Common.csproj" />
     <ProjectReference Include="..\REP_CRIME01.Crime.Domain\REP_CRIME01.Crime.Domain.csproj" />
   </ItemGroup>
 

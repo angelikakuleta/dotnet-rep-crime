@@ -5,7 +5,7 @@ using REP_CRIME01.CQRSResponse.Responses;
 using REP_CRIME01.Crime.Domain.Contracts;
 using REP_CRIME01.Crime.Domain.Entities;
 using REP_CRIME01.Crime.Infrastructure.Clients;
-using REP_CRIME01.Police.Common.DTOs;
+using REP_CRIME01.Police.Common.Models;
 using System;
 using System.Threading;
 using System.Threading.Tasks;
@@ -42,7 +42,7 @@ namespace REP_CRIME01.Crime.Application.EventFeatures.Commands
                     return new Response { Status = ResponseStatus.BadQuery, ErrorMessage = "The error occured while processing this report." };
 
                 entity.Status = EventStatus.Finished.ToString();
-                entity.LawEnforcementCode = request.LawEnforcementCode;
+                entity.LawEnforcementCode = request.AssignCrimeEventToPoliceDto.LawEnforcementCode;
                 await _repository.UpdateAsync(entity);
 
                 return new Response { Status = ResponseStatus.Success };
@@ -55,8 +55,8 @@ namespace REP_CRIME01.Crime.Application.EventFeatures.Commands
                     CrimeReportId = request.Id,
                     DateReported = entity.CreatedDate,
                     CrimeDate = entity.EventDate,
-                    Description = request.Description,
-                    LawEnforcementCode = request.LawEnforcementCode
+                    Description = request.AssignCrimeEventToPoliceDto.Description,
+                    LawEnforcementCode = request.AssignCrimeEventToPoliceDto.LawEnforcementCode
                 };
 
                 return await _policeClient.CreateCase(dto);

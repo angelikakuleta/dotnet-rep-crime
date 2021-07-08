@@ -10,12 +10,12 @@ namespace REP_CRIME01.Crime.Application.EventFeatures.Commands
         {
             public Validator()
             {
-                RuleFor(x => x.EventDate).NotEmpty().LessThan(DateTime.Now);
-                RuleFor(x => x.EventType).NotEmpty().IsEnumName(typeof(EventType));
-                RuleFor(x => x.Description).NotEmpty();
-                RuleFor(x => x.City).NotEmpty();
-                RuleFor(x => x.Street).NotEmpty();
-                RuleFor(x => x.ReportingPersonEmail).NotEmpty().EmailAddress();
+                RuleFor(x => x.CreateCrimeEventDto.EventDate).NotEmpty().LessThan(DateTime.Now);
+                RuleFor(x => x.CreateCrimeEventDto.EventType).NotEmpty().IsEnumName(typeof(EventType));
+                RuleFor(x => x.CreateCrimeEventDto.Description).NotEmpty();
+                RuleFor(x => x.CreateCrimeEventDto.City).NotEmpty();
+                RuleFor(x => x.CreateCrimeEventDto.Street).NotEmpty();
+                RuleFor(x => x.CreateCrimeEventDto.ReportingPersonEmail).NotEmpty().EmailAddress();
             }
         }
     }    

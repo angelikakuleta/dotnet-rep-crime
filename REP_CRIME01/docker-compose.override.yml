@@ -22,10 +22,11 @@ services:
       - MongoDbSettings:ConnectionString=mongodb://mongodb:27017
       - MongoDbSettings:DatabaseName=crimedb
       - HttpClientsDns:PoliceClient=http://rep_crime01.police.api
+      - EventBusSettings:HostAddress=amqp://guest:guest@localhost:5672
     depends_on:
       - mongodb
     ports:
-      - "3000:80"
+      - "8001:80"
 
   rep_crime01.police.api:
     environment:
@@ -34,5 +35,5 @@ services:
     depends_on:
       - sqldata
     ports:
-      - "80"
+      - "8002:80"
 

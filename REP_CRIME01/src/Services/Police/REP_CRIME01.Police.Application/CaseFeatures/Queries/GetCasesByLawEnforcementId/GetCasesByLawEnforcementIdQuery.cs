@@ -1,6 +1,6 @@
 ﻿using MediatR;
 using REP_CRIME01.CQRSResponse.Responses;
-using REP_CRIME01.Police.Application.Models;
+using REP_CRIME01.Police.Common.Models;
 using System;
 
 namespace REP_CRIME01.Police.Application.CaseFeatures.Queries

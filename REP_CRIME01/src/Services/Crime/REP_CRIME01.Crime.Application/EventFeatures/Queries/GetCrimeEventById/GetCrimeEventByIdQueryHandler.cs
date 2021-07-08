@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using MediatR;
 using REP_CRIME01.CQRSResponse.Responses;
-using REP_CRIME01.Crime.Application.Models;
+using REP_CRIME01.Crime.Common.Models;
 using REP_CRIME01.Crime.Domain.Contracts;
 using REP_CRIME01.Crime.Domain.Entities;
 using System.Threading;
@@ -24,7 +24,7 @@ namespace REP_CRIME01.Crime.Application.EventFeatures.Queries
 
             public async Task<Response> Handle(Query request, CancellationToken cancellationToken)
             {
-                var result = await _repository.FindByIdAsync(request.EventId);
+                var result = await _repository.FindByIdAsync(request.Id);
                 if (result is null)
                 {
                     return new Response { Status = ResponseStatus.NotFound };

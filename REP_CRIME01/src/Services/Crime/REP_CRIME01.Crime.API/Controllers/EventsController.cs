@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using REP_CRIME01.CQRSResponse;
 using REP_CRIME01.Crime.Application.EventFeatures.Commands;
 using REP_CRIME01.Crime.Application.EventFeatures.Queries;
-using REP_CRIME01.Crime.Application.Models;
+using REP_CRIME01.Crime.Common.Models;
 using System;
 using System.Threading.Tasks;
 
@@ -24,9 +24,9 @@ namespace REP_CRIME01.Crime.API.Controllers
         [HttpGet]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(PaginatedResult<CrimeEventVM>))]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public async Task<ActionResult> GetAsync([FromQuery] GetCrimeEvents.Query query)
+        public async Task<ActionResult> GetAsync([FromQuery] CrimeEventsQueryString query)
         {
-            var response = await _mediator.Send(query);
+            var response = await _mediator.Send(new GetCrimeEvents.Query { CrimeEventsQueryString = query });
             return response.IsSuccess ?
                 Ok(response.Result)
                 : StatusCode(response.GetStatusCode(), response.ErrorMessage);
@@ -37,7 +37,7 @@ namespace REP_CRIME01.Crime.API.Controllers
         [ProducesResponseType(StatusCodes.Status404NotFound)]       
         public async Task<ActionResult> GetByIdAsync(Guid id)
         {
-            var response = await _mediator.Send(new GetCrimeEventById.Query { EventId = id });
+            var response = await _mediator.Send(new GetCrimeEventById.Query { Id = id });
             return response.IsSuccess ?
                 Ok(response.Result)
                 : StatusCode(response.GetStatusCode(), response.ErrorMessage);
@@ -46,9 +46,9 @@ namespace REP_CRIME01.Crime.API.Controllers
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(Guid))]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
-        public async Task<ActionResult> CreateAsync([FromBody] CreateCrimeEvent.Command command)
+        public async Task<ActionResult> CreateAsync([FromBody] CreateCrimeEventDto dto)
         {
-            var response = await _mediator.Send(command);
+            var response = await _mediator.Send(new CreateCrimeEvent.Command { CreateCrimeEventDto = dto });
             return response.IsSuccess ?
                 Ok(response.Result)
                 : StatusCode(response.GetStatusCode(), response.ErrorMessage);
@@ -58,14 +58,9 @@ namespace REP_CRIME01.Crime.API.Controllers
         [ProducesResponseType(StatusCodes.Status202Accepted)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]        
-        public async Task<ActionResult> UpdateAsync(Guid id, [FromBody] UpdateCrimeEvent.Command command)
+        public async Task<ActionResult> UpdateAsync(Guid id, [FromBody] UpdateCrimeEventDto dto)
         {
-            if (id != command.Id)
-            {
-                return BadRequest();
-            }
-
-            var response = await _mediator.Send(command);
+            var response = await _mediator.Send(new UpdateCrimeEvent.Command { Id = id, UpdateCrimeEventDto = dto });
             return response.IsSuccess ?
                 Accepted()
                 : StatusCode(response.GetStatusCode(), response.ErrorMessage);
@@ -73,10 +68,11 @@ namespace REP_CRIME01.Crime.API.Controllers
 
         [HttpDelete("{id:Guid}")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]        
         public async Task<ActionResult> DeleteAsnc(Guid id)
         {
-            var response = await _mediator.Send(new DeleteCrimeEvent.Command { EventId = id });
+            var response = await _mediator.Send(new DeleteCrimeEvent.Command { Id = id });
             return response.IsSuccess ?
                 NoContent()
                 : StatusCode(response.GetStatusCode(), response.ErrorMessage);
@@ -87,14 +83,10 @@ namespace REP_CRIME01.Crime.API.Controllers
         [ProducesResponseType(StatusCodes.Status202Accepted)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
-        public async Task<ActionResult> AssignAsync(Guid id, [FromBody] AssignCrimeEventToPolice.Command command)
+        public async Task<ActionResult> AssignAsync(Guid id, [FromBody] AssignCrimeEventToPoliceDto dto)
         {
-            if (id != command.Id)
-            {
-                return BadRequest();
-            }
 
-            var response = await _mediator.Send(command);
+            var response = await _mediator.Send(new AssignCrimeEventToPolice.Command { Id = id, AssignCrimeEventToPoliceDto = dto });
             return response.IsSuccess ?
                 Accepted()
                 : StatusCode(response.GetStatusCode(), response.ErrorMessage);

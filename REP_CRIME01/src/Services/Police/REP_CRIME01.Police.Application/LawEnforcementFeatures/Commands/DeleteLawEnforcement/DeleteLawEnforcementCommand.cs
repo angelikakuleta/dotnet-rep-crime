@@ -8,7 +8,7 @@ namespace REP_CRIME01.Police.Application.LawEnforcementFeatures.Commands
     {
         public record Command : IRequest<Response>
         {
-            public Guid Id { get; set; }
+            public Guid Id { get; init; }
         }
 
         public record Response : BaseResponse { }

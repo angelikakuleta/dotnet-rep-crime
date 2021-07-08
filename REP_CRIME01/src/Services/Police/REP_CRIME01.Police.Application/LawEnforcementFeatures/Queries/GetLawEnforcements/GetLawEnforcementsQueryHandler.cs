@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using MediatR;
-using REP_CRIME01.Police.Application.Models;
+using REP_CRIME01.Police.Common.Models;
 using REP_CRIME01.Police.Domain.Contracts;
 using REP_CRIME01.Police.Domain.Entities;
 using System;
@@ -27,17 +27,18 @@ namespace REP_CRIME01.Police.Application.LawEnforcementFeatures.Queries
 
             public async Task<Response> Handle(Query request, CancellationToken cancellationToken)
             {
-                Expression<Func<LawEnforcement, bool>> filterExpression = string.IsNullOrEmpty(request.SearchPhrase) 
+                var qs = request.QueryString;
+                Expression<Func<LawEnforcement, bool>> filterExpression = string.IsNullOrEmpty(qs.SearchPhrase) 
                     ? x => 1 == 1
-                    : x => x.Code.ToLower().Contains(request.SearchPhrase.ToLower()) || x.City.ToLower().Contains(request.SearchPhrase.ToLower());
+                    : x => x.Code.ToLower().Contains(qs.SearchPhrase.ToLower()) || x.City.ToLower().Contains(qs.SearchPhrase.ToLower());
 
                 Expression<Func<LawEnforcement, object>> sortBy = x => x.Code;
 
-                bool sortDesc = string.IsNullOrEmpty(request.OrderBy) || request.OrderBy.ToLower().Contains("desc");
-                int pageIndex = request.PageIndex;
-                int pageSize = request.PageSize;
+                bool sortDesc = string.IsNullOrEmpty(qs.OrderBy) || qs.OrderBy.ToLower().Contains("desc");
+                int pageIndex = qs.PageIndex;
+                int pageSize = qs.PageSize;
 
-                var entities = await _repository.FindAllAsync(filterExpression, sortBy, sortDesc, request.PageIndex, pageSize);
+                var entities = await _repository.FindAllAsync(filterExpression, sortBy, sortDesc, pageIndex, pageSize);
                 var count = await _repository.CountAsync(filterExpression);
                 var items = _mapper.Map<List<LawEnforcementVM>>(entities);
                 

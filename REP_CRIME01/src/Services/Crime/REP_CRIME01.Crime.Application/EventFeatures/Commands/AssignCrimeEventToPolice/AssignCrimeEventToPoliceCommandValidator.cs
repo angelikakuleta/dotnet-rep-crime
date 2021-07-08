@@ -11,8 +11,8 @@ namespace REP_CRIME01.Crime.Application.EventFeatures.Commands
             public Validator()
             {
                 RuleFor(x => x.Id).NotEmpty();
-                RuleFor(x => x.Description).NotEmpty();
-                RuleFor(x => x.LawEnforcementCode).NotEmpty().Length(6);
+                RuleFor(x => x.AssignCrimeEventToPoliceDto.Description).NotEmpty();
+                RuleFor(x => x.AssignCrimeEventToPoliceDto.LawEnforcementCode).NotEmpty().Length(6);
             }
         }
     }    

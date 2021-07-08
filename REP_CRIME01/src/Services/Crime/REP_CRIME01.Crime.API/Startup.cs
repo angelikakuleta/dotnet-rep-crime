@@ -7,6 +7,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using REP_CRIME01.Crime.API.Middlewares;
 using REP_CRIME01.Crime.Application;
+using REP_CRIME01.Crime.Common.Models;
 using REP_CRIME01.Crime.Infrastructure;
 
 namespace REP_CRIME01.Crime.API

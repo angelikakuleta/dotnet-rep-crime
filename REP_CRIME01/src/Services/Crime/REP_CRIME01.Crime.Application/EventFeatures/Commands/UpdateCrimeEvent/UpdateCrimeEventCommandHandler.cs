@@ -29,7 +29,7 @@ namespace REP_CRIME01.Crime.Application.EventFeatures.Commands
                     return new Response { Status = ResponseStatus.NotFound };
                 }
 
-                _mapper.Map(request, entity);
+                _mapper.Map(request.UpdateCrimeEventDto, entity);
                 await _repository.UpdateAsync(entity);
 
                 return new Response { Status = ResponseStatus.Success };

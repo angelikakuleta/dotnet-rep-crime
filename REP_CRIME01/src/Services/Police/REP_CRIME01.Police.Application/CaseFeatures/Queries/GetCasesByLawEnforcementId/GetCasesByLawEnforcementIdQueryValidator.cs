@@ -1,5 +1,5 @@
 ﻿using FluentValidation;
-using REP_CRIME01.Police.Application.Models;
+using REP_CRIME01.Police.Common.Models;
 
 namespace REP_CRIME01.Police.Application.CaseFeatures.Queries
 {

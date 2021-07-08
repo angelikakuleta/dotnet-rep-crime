@@ -22,7 +22,7 @@ namespace REP_CRIME01.Crime.Application.EventFeatures.Commands
 
             public async Task<Response> Handle(Command request, CancellationToken cancellationToken)
             {
-                var entity = _mapper.Map<CrimeEvent>(request);
+                var entity = _mapper.Map<CrimeEvent>(request.CreateCrimeEventDto);
                 await _repository.AddAsync(entity);
 
                 return new Response { Result = entity.Id };

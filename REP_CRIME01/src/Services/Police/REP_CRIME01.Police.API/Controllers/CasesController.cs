@@ -4,8 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using REP_CRIME01.CQRSResponse;
 using REP_CRIME01.Police.Application.CaseFeatures.Commands;
 using REP_CRIME01.Police.Application.CaseFeatures.Queries;
-using REP_CRIME01.Police.Application.Models;
-using REP_CRIME01.Police.Common.DTOs;
+using REP_CRIME01.Police.Common.Models;
 using System;
 using System.Threading.Tasks;
 
@@ -61,12 +60,7 @@ namespace REP_CRIME01.Police.API.Controllers
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<ActionResult> UpdateAsync(Guid id, [FromBody] UpdateCaseDto dto)
         {
-            if (id != dto.Id)
-            {
-                return BadRequest();
-            }
-
-            var response = await _mediator.Send(new UpdateCase.Command { UpdateCaseDto = dto });
+            var response = await _mediator.Send(new UpdateCase.Command { Id = id, UpdateCaseDto = dto });
             return response.IsSuccess ?
                 Accepted()
                 : StatusCode(response.GetStatusCode(), response.ErrorMessage);

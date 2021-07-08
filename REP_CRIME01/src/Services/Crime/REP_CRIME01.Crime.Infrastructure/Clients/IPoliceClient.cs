@@ -1,4 +1,4 @@
-﻿using REP_CRIME01.Police.Common.DTOs;
+﻿using REP_CRIME01.Police.Common.Models;
 using System;
 using System.Threading.Tasks;
 

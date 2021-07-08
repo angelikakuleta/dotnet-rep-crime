@@ -24,11 +24,11 @@ namespace REP_CRIME01.Police.Application.LawEnforcementFeatures.Commands
 
             public async Task<Response> Handle(Command request, CancellationToken cancellationToken)
             {
-                var isCodeUnique = (await _repository.FindAsync(x => x.Code == request.Code)) is null;
+                var isCodeUnique = (await _repository.FindAsync(x => x.Code == request.CreateLawEnforcementDto.Code)) is null;
                 if (!isCodeUnique)
                     return new Response { Status = ResponseStatus.BadQuery, ErrorMessage = "The object with given code already exists." };
 
-                var entity = _mapper.Map<LawEnforcement>(request);
+                var entity = _mapper.Map<LawEnforcement>(request.CreateLawEnforcementDto);
                 await _repository.AddAsync(entity);
                 return new Response { Result = entity.Id };
             }

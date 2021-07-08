@@ -8,7 +8,7 @@ namespace REP_CRIME01.Crime.Application.EventFeatures.Commands
     {
         public record Command : IRequest<Response>
         {
-            public Guid EventId { get; set; }
+            public Guid Id { get; init; }
         }
 
         public record Response : BaseResponse { }

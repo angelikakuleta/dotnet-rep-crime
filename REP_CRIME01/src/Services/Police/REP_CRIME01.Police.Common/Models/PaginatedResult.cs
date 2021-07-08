@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace REP_CRIME01.Police.Application.Models
+namespace REP_CRIME01.Police.Common.Models
 {
     public class PaginatedResult<T>
     {

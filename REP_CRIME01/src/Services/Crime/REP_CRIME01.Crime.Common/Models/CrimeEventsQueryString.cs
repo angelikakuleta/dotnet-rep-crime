@@ -1,6 +1,6 @@
-﻿namespace REP_CRIME01.Police.Application.Models
+﻿namespace REP_CRIME01.Crime.Common.Models
 {
-    public record CasesQueryString
+    public record CrimeEventsQueryString
     {
         private const int maxPageSize = 50;
 
@@ -16,6 +16,6 @@
                 _pageSize = (value > maxPageSize) ? maxPageSize : value;
             }
         }
-        public string OrderBy { get; init; } = CasesOrder.CRIMEDATE_DESC.ToString();
+        public string OrderBy { get; init; } = CrimeEventsOrder.EVENTDATE_DESC.ToString();
     }
 }

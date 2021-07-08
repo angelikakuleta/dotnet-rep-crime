@@ -20,7 +20,7 @@ namespace REP_CRIME01.Crime.Application.EventFeatures.Commands
 
             public async Task<Response> Handle(Command request, CancellationToken cancellationToken)
             {
-                var isSuccessful = await _repository.DeleteByIdAsync(request.EventId);
+                var isSuccessful = await _repository.DeleteByIdAsync(request.Id);
                 return isSuccessful 
                     ? new Response { Status = ResponseStatus.Success }
                     : new Response { Status = ResponseStatus.NotFound };

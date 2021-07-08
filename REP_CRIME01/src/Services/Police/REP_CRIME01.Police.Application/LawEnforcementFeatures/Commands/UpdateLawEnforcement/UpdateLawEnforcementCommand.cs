@@ -1,5 +1,6 @@
 ﻿using MediatR;
 using REP_CRIME01.CQRSResponse.Responses;
+using REP_CRIME01.Police.Common.Models;
 using System;
 
 namespace REP_CRIME01.Police.Application.LawEnforcementFeatures.Commands
@@ -9,9 +10,7 @@ namespace REP_CRIME01.Police.Application.LawEnforcementFeatures.Commands
         public record Command : IRequest<Response>
         {
             public Guid Id { get; init; }
-            public string Rank { get; init; }
-            public string PoliceDepartmentCode { get; init; }
-            public string City { get; init; }
+            public UpdateLawEnforcementDto UpdateLawEnforcementDto { get; init; }
         }
 
         public record Response : BaseResponse<Guid> { }

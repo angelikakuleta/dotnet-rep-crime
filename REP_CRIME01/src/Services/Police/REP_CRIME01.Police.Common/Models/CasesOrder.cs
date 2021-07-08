@@ -1,4 +1,4 @@
-﻿namespace REP_CRIME01.Police.Application.Models
+﻿namespace REP_CRIME01.Police.Common.Models
 {
     public enum CasesOrder
     {

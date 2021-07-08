@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace REP_CRIME01.Police.Application.Models
+namespace REP_CRIME01.Police.Common.Models
 {
     public record CaseVM
     {

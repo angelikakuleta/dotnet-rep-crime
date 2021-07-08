@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using MediatR;
-using REP_CRIME01.Police.Application.Models;
+using REP_CRIME01.Police.Common.Models;
 using REP_CRIME01.Police.Domain.Contracts;
 using REP_CRIME01.Police.Domain.Entities;
 using System;

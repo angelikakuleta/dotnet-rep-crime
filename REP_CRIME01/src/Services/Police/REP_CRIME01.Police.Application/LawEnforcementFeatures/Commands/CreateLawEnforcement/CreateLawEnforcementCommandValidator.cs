@@ -9,10 +9,10 @@ namespace REP_CRIME01.Police.Application.LawEnforcementFeatures.Commands
         {
             public Validator()
             {
-                RuleFor(x => x.Code).NotEmpty().Length(6);
-                RuleFor(x => x.City).NotEmpty();
-                RuleFor(x => x.Rank).NotEmpty().IsEnumName(typeof(LawEnforcementRank));
-                RuleFor(x => x.PoliceDepartmentCode).NotEmpty().Length(6);
+                RuleFor(x => x.CreateLawEnforcementDto.Code).NotEmpty().Length(6);
+                RuleFor(x => x.CreateLawEnforcementDto.City).NotEmpty();
+                RuleFor(x => x.CreateLawEnforcementDto.Rank).NotEmpty().IsEnumName(typeof(LawEnforcementRank));
+                RuleFor(x => x.CreateLawEnforcementDto.PoliceDepartmentCode).NotEmpty().Length(6);
             }
         }
     }    

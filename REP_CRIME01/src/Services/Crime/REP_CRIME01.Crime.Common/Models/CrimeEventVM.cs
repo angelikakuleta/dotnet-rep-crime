@@ -1,7 +1,6 @@
-﻿using REP_CRIME01.Crime.Domain.ValueObjects;
-using System;
+﻿using System;
 
-namespace REP_CRIME01.Crime.Application.Models
+namespace REP_CRIME01.Crime.Common.Models
 {
     public record CrimeEventVM
     {

@@ -1,5 +1,5 @@
 ﻿using FluentValidation;
-using REP_CRIME01.Police.Application.Models;
+using REP_CRIME01.Police.Common.Models;
 
 namespace REP_CRIME01.Police.Application.LawEnforcementFeatures.Queries
 {
@@ -9,10 +9,10 @@ namespace REP_CRIME01.Police.Application.LawEnforcementFeatures.Queries
         {
             public Validator()
             {
-                RuleFor(x => x.SearchPhrase).MinimumLength(3).When(s => !string.IsNullOrEmpty(s.SearchPhrase));
-                RuleFor(x => x.OrderBy.ToLower()).IsEnumName(typeof(LawEnforcementsOrder), false).When(s => !string.IsNullOrEmpty(s.OrderBy));
-                RuleFor(x => x.PageIndex).GreaterThanOrEqualTo(1).Unless(x => x is null);
-                RuleFor(x => x.PageSize).GreaterThanOrEqualTo(10).Unless(x => x is null);
+                RuleFor(x => x.QueryString.SearchPhrase).MinimumLength(3).When(s => !string.IsNullOrEmpty(s.QueryString.SearchPhrase));
+                RuleFor(x => x.QueryString.OrderBy.ToLower()).IsEnumName(typeof(LawEnforcementsOrder), false).When(s => !string.IsNullOrEmpty(s.QueryString.OrderBy));
+                RuleFor(x => x.QueryString.PageIndex).GreaterThanOrEqualTo(1).Unless(x => x is null);
+                RuleFor(x => x.QueryString.PageSize).GreaterThanOrEqualTo(10).Unless(x => x is null);
             }
         }
     }

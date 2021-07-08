@@ -5,7 +5,7 @@ services:
     image: mongo
 
   sqldata:
-    image: mcr.microsoft.com/mssql/server:2017-latest  
+    image: mcr.microsoft.com/mssql/server:2017-latest
 
   rep_crime01.crime.api:
     image: ${DOCKER_REGISTRY-}repcrime01crimeapi
