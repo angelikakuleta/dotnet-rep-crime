@@ -1,7 +1,7 @@
-﻿using REP_CRIME01.Crime.Domain.Common;
+﻿using REP_CRIME01.Crime.Common;
+using REP_CRIME01.Crime.Domain.Common;
 using REP_CRIME01.Crime.Domain.ValueObjects;
 using System;
-using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
 namespace REP_CRIME01.Crime.Domain.Entities

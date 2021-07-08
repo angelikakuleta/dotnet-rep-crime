@@ -1,5 +1,5 @@
 ﻿using FluentValidation;
-using REP_CRIME01.Crime.Domain.Entities;
+using REP_CRIME01.Crime.Common;
 using System;
 
 namespace REP_CRIME01.Crime.Application.EventFeatures.Commands

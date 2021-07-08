@@ -27,3 +27,10 @@ services:
     build:
       context: .
       dockerfile: src/Services/CrimeFeedback/REP_CRIME01.CrimeFeedback/Dockerfile
+
+  rep_crime01.crimereportweb:
+    image: ${DOCKER_REGISTRY-}repcrime01crimereportweb
+    build:
+      context: .
+      dockerfile: src/Web/REP_CRIME01.CrimeReportWeb/Dockerfile
+

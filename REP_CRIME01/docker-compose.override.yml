@@ -51,3 +51,11 @@ services:
     - EventBusSettings:HostAddress=rabbitmq
     volumes:
       - ${APPDATA}/Microsoft/UserSecrets:/root/.microsoft/usersecrets:ro
+
+  rep_crime01.crimereportweb:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - HttpClientsDns:CrimeClient=http://rep_crime01.crime.api
+    ports:
+      - "8000:80"
+

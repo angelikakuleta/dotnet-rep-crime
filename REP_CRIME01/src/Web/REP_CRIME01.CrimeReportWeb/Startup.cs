@@ -1,12 +1,13 @@
+using AutoMapper;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using REP_CRIME01.Crime.Common.Models;
+using REP_CRIME01.CrimeReportWeb.Models;
+using REP_CRIME01.CrimeReportWeb.Settings;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace REP_CRIME01.CrimeReportWeb
 {
@@ -22,6 +23,16 @@ namespace REP_CRIME01.CrimeReportWeb
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            var config = new MapperConfiguration(cfg => {
+                cfg.CreateMap<CreateCrimeEventVM, CreateCrimeEventDto>();
+            });
+            services.AddScoped<IMapper>(x => config.CreateMapper());
+
+            var httpClientsDns = new HttpClientsDns();
+            Configuration.GetSection(nameof(HttpClientsDns)).Bind(httpClientsDns);
+
+            services.AddHttpClient<ICrimeClient, CrimeClient>(c => c.BaseAddress = new Uri(httpClientsDns.CrimeClient));
+
             services.AddControllersWithViews();
         }
 
@@ -46,7 +57,7 @@ namespace REP_CRIME01.CrimeReportWeb
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=Crime}/{action=Index}/{id?}");
             });
         }
     }

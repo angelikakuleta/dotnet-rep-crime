@@ -7,4 +7,8 @@
     <StartupObject />
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\REP_CRIME01.Crime.Common\REP_CRIME01.Crime.Common.csproj" />
+  </ItemGroup>
+
 </Project>
